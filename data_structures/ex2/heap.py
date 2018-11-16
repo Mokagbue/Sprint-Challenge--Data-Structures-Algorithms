@@ -1,7 +1,9 @@
 def heapsort(arr):
- pass 
+ arr_length = len(arr)
+ #builds a max heap
+ for i in range(arr_length, -1, -1):
+   heapify(arr, arr_length, i)
  
-
 class Heap:
   def __init__(self):
     self.storage = []
