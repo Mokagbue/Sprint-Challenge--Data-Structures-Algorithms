@@ -1,9 +1,23 @@
 def heapsort(arr):
- arr_length = len(arr)
- #builds a max heap
- for i in range(arr_length, -1, -1):
-   heapify(arr, arr_length, i)
- 
+  #make a heap, make room for the sorted list. TC = O(1),O(n)
+  heap = Heap()
+  sorted = (0) * len(arr)
+  #insert items into the heap. O(n), O(log n)
+  for elf in arr:
+    heap.insert(elf)
+  #pull items out of the heap. O(n), O(log n)
+  for i in range(len(arr)):
+    sorterd[len(arr) - i - 1] = heap.delete()
+  
+  return sorted
+  # O(1) + O(n) + O(n) * O(log n) + O(n) * O(log n)
+  # O(1) + O(n) + O(n log n) + O(n log n)
+  # O(1) + O(n) + O(2 * n log n)
+  # O(1) + O(n) + O(n log n)
+  # O(n) + O(n log n)
+  # O(n log n)
+  # heapsort TC final = O(n log n)
+
 class Heap:
   def __init__(self):
     self.storage = []

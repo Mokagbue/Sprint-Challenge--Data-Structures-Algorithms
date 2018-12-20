@@ -4,18 +4,41 @@ class BinarySearchTree:
     self.left = None
     self.right = None
 
-#a.k.a Inorder
+# a.k.a Inorder
   def depth_first_for_each(self, cb):
-    if cb:
-      depth_first_for_each(cb.left)
-      print(cb.value),
-      depth_first_for_each(cb.right)
+    # Recursive Implemenetation
+    # call the call-back first, process the current node
+    cb(self.value)
+    # process the left side, then the right
+    if self.left:
+      self.left.depth_first_for_each(cb)
+    if self.right:
+      self.right.depth_first_for_each(cb)
 
-#a.k.a Level Order
+  # # Iterative Implementation
+  # def depth_first_for_each(self, cb):
+  #   stack = []
+  #   stack.append(self)
+  #   while len(stack):
+  #     current = stack.pop()
+  #     if current_node.right:
+  #       stack.append(current_node.right)
+  #     if current_node.left:
+  #       stack.append(current_node.left)
+  #     cb(current_node.value)
+ 
+# a.k.a Level Order
   def breadth_first_for_each(self, cb):
-    height = height(cb)
-    for i in range(1, height + 1)
-      breadth_first_for_each(cb, i)
+    q = []
+    q.append(self)
+    
+      while len(q):
+        current_node = q.pop(0)
+        if current_node.left:
+          q.append(current_node.left)
+        if current_node.rigt:
+          q.append(current_node.right)
+        cb(current_node.value)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
