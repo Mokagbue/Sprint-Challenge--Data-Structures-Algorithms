@@ -1,15 +1,22 @@
 def heapsort(arr):
-  #make a heap, make room for the sorted list. TC = O(1),O(n)
   heap = Heap()
   sorted = (0) * len(arr)
-  #insert items into the heap. O(n), O(log n)
+  
   for elf in arr:
     heap.insert(elf)
-  #pull items out of the heap. O(n), O(log n)
-  for i in range(len(arr)):
-    sorterd[len(arr) - i - 1] = heap.delete()
-  
-  return sorted
+  return_list = []
+ 
+  for i in range(0, len(arr)):
+    return_list.insert(0, heap.delete())
+
+  print(return_list)
+
+  return return_list
+
+# Notes
+  # make a heap, make room for the sorted list. TC = O(1),O(n)
+  # insert items into the heap. O(n), O(log n)
+  # pull items out of the heap. O(n), O(log n)
   # O(1) + O(n) + O(n) * O(log n) + O(n) * O(log n)
   # O(1) + O(n) + O(n log n) + O(n log n)
   # O(1) + O(n) + O(2 * n log n)
